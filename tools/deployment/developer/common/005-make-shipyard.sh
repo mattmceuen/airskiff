@@ -36,8 +36,7 @@ make images
 
 cd ${INSTALL_PATH}
 git clone git://git.openstack.org/openstack/airship-pegleg
-
-cd ${INSTALL_PATH}
+git clone git://git.openstack.org/openstack/openstack-helm
 git clone git://git.openstack.org/openstack/openstack-helm-infra
 
 cd ${CURRENT_DIR}

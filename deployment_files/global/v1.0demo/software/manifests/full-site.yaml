@@ -1,0 +1,16 @@
+---
+schema: armada/Manifest/v1
+metadata:
+  schema: metadata/Document/v1
+  name: full-site
+  layeringDefinition:
+    abstract: false
+    layer: global
+  storagePolicy: cleartext
+data:
+  release_prefix: airship
+  chart_groups:
+    - openstack-ingress-controller
+    - openstack-component-infrastructure
+    - openstack-component-shared
+    - openstack-compute-kit

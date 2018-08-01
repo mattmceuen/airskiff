@@ -32,6 +32,7 @@ There is a set of scripts for ceph- and nfs-backed cluster storage.  To deploy
 the ceph scripts for example, please run these commands in sequence:
 
 ::
+
   cd airskiff
   ./tools/deployment/developer/ceph/000-install-packages.sh
   ./tools/deployment/developer/ceph/005-make-airship.sh
@@ -70,7 +71,7 @@ Next Steps
 After familiarizing yourself with these Airship software delivery projects, you
 can move on to the infrastructure provisioning projects Promenade and Drydock.
 To demonstrate the full stack of Airship components, please try out the 
-`Airship-in-a-Bottle <https://github.com/openstack/airship-in-a-bottle`_
+`Airship-in-a-Bottle <https://github.com/openstack/airship-in-a-bottle>`_
 project.
 
 Thanks

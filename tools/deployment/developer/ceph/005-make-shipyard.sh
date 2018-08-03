@@ -1,1 +1,0 @@
-../common/005-make-shipyard.sh

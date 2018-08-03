@@ -20,24 +20,24 @@ CURRENT_DIR="$(pwd)"
 : ${INSTALL_PATH:="../"}
 
 cd ${INSTALL_PATH}
-git clone git://git.openstack.org/openstack/airship-shipyard
+git clone http://git.openstack.org/openstack/airship-shipyard
 cd airship-shipyard
 make
 
 cd ${INSTALL_PATH}
-git clone git://git.openstack.org/openstack/airship-deckhand
+git clone http://git.openstack.org/openstack/airship-deckhand
 cd airship-deckhand
 make
 
 cd ${INSTALL_PATH}
-git clone git://git.openstack.org/openstack/airship-armada
+git clone http://git.openstack.org/openstack/airship-armada
 cd airship-armada
 make images
 
 cd ${INSTALL_PATH}
-git clone git://git.openstack.org/openstack/airship-pegleg
-git clone git://git.openstack.org/openstack/openstack-helm
-git clone git://git.openstack.org/openstack/openstack-helm-infra
+git clone http://git.openstack.org/openstack/airship-pegleg
+git clone http://git.openstack.org/openstack/openstack-helm
+git clone http://git.openstack.org/openstack/openstack-helm-infra
 
 cd ${CURRENT_DIR}
 

@@ -24,4 +24,19 @@ sudo apt-get install --no-install-recommends -y \
         jq \
         nmap \
         curl \
-        uuid-runtime
+        uuid-runtime \
+	apt-transport-https \
+	ca-certificates \
+	software-properties-common
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo apt-add-repository \
+	"deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+	$(lsb_release -cs) \
+	stable"
+
+sudo apt-get update
+sudo apt-get install --no-install-recommends -y docker-ce
+sudo adduser $(whoami) docker
+

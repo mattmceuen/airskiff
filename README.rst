@@ -25,7 +25,7 @@ halfway there.  The shell scripts can be used to:
 
 * Download, build, and containerize the Airship projects above from source
 * Stand up a Kubernetes cluster via KubeADM
-* Deploy Pegleg, Shipyard, Deckhand, and Armada via the Helm CLI
+* Deploy Shipyard, Deckhand, and Armada via the Helm CLI
 * Deploy OpenStack using Airship, declarative YAMLs, and OpenStack-Helm charts
 
 There is a set of scripts for ceph- and nfs-backed cluster storage.  To deploy
@@ -53,6 +53,9 @@ the ceph scripts for example, please run these commands in sequence:
   ./tools/deployment/developer/ceph/140-pegleg.sh
   ./tools/deployment/developer/ceph/150-deploy-software.sh
 
+Don't forget to read the contents of these scripts as you run them --
+learning what's going on is the point!
+
 Once you have a running cluster on your laptop, if you're
 doing development on one of these projects (e.g. Shipyard), you can
 deploy your changes into a running cluster like so:
@@ -73,6 +76,10 @@ can move on to the infrastructure provisioning projects Promenade and Drydock.
 To demonstrate the full stack of Airship components, please try out the 
 `Airship-in-a-Bottle <https://github.com/openstack/airship-in-a-bottle>`_
 project.
+
+Please bring any questions you have around Airship to the #airshipit IRC
+channel on `Freenode <https://webchat.freenode.net>`_.  We would love to welcome
+new developers, testers, documenters, and operators!
 
 Thanks
 ------

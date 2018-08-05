@@ -35,6 +35,8 @@ the ceph scripts for example, please run these commands in sequence:
 
   cd airskiff
   ./tools/deployment/developer/ceph/000-install-packages.sh
+  # You may need to log out and back in at this point to
+  # add your userid to the docker group
   ./tools/deployment/developer/ceph/005-make-airship.sh
   ./tools/deployment/developer/ceph/010-deploy-k8s.sh
   ./tools/deployment/developer/ceph/020-setup-client.sh

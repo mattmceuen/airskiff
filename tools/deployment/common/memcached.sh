@@ -17,8 +17,8 @@
 set -xe
 
 CURRENT_DIR="$(pwd)"
-: ${OSH_PATH:="../openstack-helm"}
-cd ${OSH_PATH}
+: ${OSH_INFRA_PATH:="../openstack-helm-infra"}
+cd ${OSH_INFRA_PATH}
 
 #NOTE: Lint and package chart
 make memcached
@@ -26,7 +26,7 @@ make memcached
 #NOTE: Deploy command
 : ${AS_EXTRA_HELM_ARGS:=""}
 helm upgrade --install memcached ./memcached \
-    --namespace=openstack \
+    --namespace=ucp \
     ${AS_EXTRA_HELM_ARGS} \
     ${AS_EXTRA_HELM_ARGS_MEMCACHED}
 

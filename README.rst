@@ -28,6 +28,49 @@ halfway there.  The shell scripts can be used to:
 * Deploy Shipyard, Deckhand, and Armada via the Helm CLI
 * Deploy OpenStack using Airship, declarative YAMLs, and OpenStack-Helm charts
 
+Common Configuration Requirements
+---------------------------------
+
+Common configuration requirements covers deployment scenarios that may not be
+relevant for every user of Airskiff.
+
+DNS Nameservers
+~~~~~~~~~~~~~~~
+
+During the OpenStack-Helm installation process, the contents of
+``/etc/resolv.conf`` are overwritten with the entries in
+``openstack-helm-infra/tools/images/kubeadm-aio/assets/opt/playbooks/vars.yaml``
+under the ``external_dns_nameserver`` section. After the ``OpenStack-Helm`` and
+``OpenStack-Helm-Infra`` repositories are cloned to your parent directory by
+the ``tools/deployment/developer/common/005-make-airship.sh`` script during the
+setup process, replace the default Google DNS nameservers if you require other
+nameservers to reach the internet.
+
+Proxy Configuration
+~~~~~~~~~~~~~~~~~~~
+
+Additional configuration is necessary to deploy Airskiff behind corporate proxy
+servers. This section assumes you have properly defined the standard
+``http_proxy``, ``https_proxy``, and ``no_proxy`` environment variables and
+have followed the `Docker proxy guide`_ to create a systemd drop-in unit.
+
+Define the following environment variables to enable Airship components to
+build behind your proxy servers:
+
+.. code-block:: bash
+
+    export USE_PROXY=true
+    export PROXY=${http_proxy}
+
+After the ``OpenStack-Helm`` and ``OpenStack-Helm-Infra`` repositories are
+cloned to your parent directory by the
+``tools/deployment/developer/common/005-make-airship.sh`` script during the
+setup process, follow the `OpenStack-Helm proxy guide`_ to enable deployment of
+OpenStack-Helm behind your proxy servers.
+
+Setup
+-----
+
 There is a set of scripts for ceph- and nfs-backed cluster storage.  To deploy
 the ceph scripts for example, please run these commands in sequence:
 
@@ -75,7 +118,7 @@ Next Steps
 
 After familiarizing yourself with these Airship software delivery projects, you
 can move on to the infrastructure provisioning projects Promenade and Drydock.
-To demonstrate the full stack of Airship components, please try out the 
+To demonstrate the full stack of Airship components, please try out the
 `Airship-in-a-Bottle <https://github.com/openstack/airship-in-a-bottle>`_
 project.
 
@@ -89,3 +132,8 @@ Thanks
 This project is based on work from the OpenStack-Helm and Airship-in-a-Bottle
 projects.
 
+.. _Docker proxy guide: https://docs.docker.com/config/daemon/systemd/
+    #httphttps-proxy
+
+.. _OpenStack-Helm proxy guide: https://docs.openstack.org/openstack-helm/
+    latest/install/common-requirements.html#proxy-configuration

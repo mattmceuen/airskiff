@@ -23,7 +23,7 @@ sudo -H mkdir -p /etc/openstack
 sudo -H chown -R $(id -un): /etc/openstack
 tee /etc/openstack/clouds.yaml << EOF
 clouds:
-  openstack_helm:
+  airship:
     region_name: RegionOne
     identity_api_version: 3
     auth:

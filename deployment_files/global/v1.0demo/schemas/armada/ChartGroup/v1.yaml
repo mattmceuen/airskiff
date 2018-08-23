@@ -1,0 +1,24 @@
+---
+schema: deckhand/DataSchema/v1
+metadata:
+  name: armada/ChartGroup/v1
+  schema: metadata/Control/v1
+data:
+  $schema: http://json-schema.org/schema#
+  properties:
+    name:
+      type: string
+    description:
+      type: string
+    sequenced:
+      type: boolean
+    test_charts:
+      type: boolean
+    chart_group:
+      type: array
+      items:
+        type: string
+  required:
+    - chart_group
+  additionalProperties: false
+...

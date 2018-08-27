@@ -40,9 +40,9 @@ ${PEGLEG} site -p deployment_files/ collect ${PL_SITE} -s ${PL_OUTPUT}
 cp -rp ${CURRENT_DIR}/${PL_OUTPUT} ${SY_PATH}/${SY_OUTPUT}
 
 # Deploy the site
+. tools/deployment/common/os-env.sh
 cd ${SY_PATH}
 : ${SHIPYARD:="./tools/shipyard.sh"}
-. tools/deployment/common/os-env.sh
 : ${SY_AUTH:="--os-project-domain-name=$OS_PROJECT_DOMAIN_NAME \
               --os-user-domain-name=$OS_USER_DOMAIN_NAME \
               --os-project-name=$OS_PROJECT_NAME \

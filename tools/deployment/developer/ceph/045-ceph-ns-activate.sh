@@ -55,6 +55,12 @@ helm upgrade --install ceph-ucp-config ./ceph-provisioners \
   ${AS_EXTRA_HELM_ARGS} \
   ${AS_EXTRA_HELM_ARGS_CEPH_NS_ACTIVATE}
 
+helm upgrade --install ceph-openstack-config ./ceph-provisioners \
+  --namespace=openstack \
+  --values=/tmp/ceph-ucp-config.yaml \
+  ${AS_EXTRA_HELM_ARGS} \
+  ${AS_EXTRA_HELM_ARGS_CEPH_NS_ACTIVATE}
+
 #NOTE: Wait for deploy
 ./tools/deployment/common/wait-for-pods.sh ucp
 

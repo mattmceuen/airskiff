@@ -1,0 +1,135 @@
+---
+schema: deckhand/DataSchema/v1
+metadata:
+  name: armada/Chart/v1
+  schema: metadata/Control/v1
+data:
+  $schema: http://json-schema.org/schema#
+  definitions:
+    labels:
+      type: object
+      additionalProperties:
+        type: string
+    hook_action:
+      type: array
+      items:
+        properties:
+          name:
+            type: string
+          type:
+            type: string
+          labels:
+            $ref: '#/definitions/labels'
+        required:
+          - type
+        additionalProperties: false
+  type: object
+  properties:
+    release:
+      type: string
+    chart_name:
+      type: string
+    namespace:
+      type: string
+    values:
+      type: object
+    dependencies:
+      type: array
+      items:
+        type: string
+    protected:
+      type: object
+      properties:
+        continue_processing:
+          type: boolean
+      additionalProperties: false
+    test:
+      anyOf:
+        # TODO: Remove boolean support after deprecation period.
+        - type: boolean
+        - type: object
+          properties:
+            enabled:
+              type: boolean
+            options:
+              type: object
+              properties:
+                cleanup:
+                  type: boolean
+              additionalProperties: false
+          additionalProperties: false
+    # TODO(MarshM): Deprecate this `timeout` in favor of `wait.timeout`
+    timeout:
+      type: integer
+    wait:
+      type: object
+      properties:
+        timeout:
+          type: integer
+        labels:
+          $ref: "#/definitions/labels"
+      additionalProperties: false
+    source:
+      type: object
+      properties:
+        type:
+          type: string
+        location:
+          type: string
+        subpath:
+          type: string
+        reference:
+          type: string
+        proxy_server:
+          type: string
+        auth_method:
+          type: string
+      required:
+        - location
+        - subpath
+        - type
+    install:
+      # NOTE(sh8121att) Not clear that this key is actually used
+      # in the code. Will leave it here for backward compatabilities
+      # until an additional audit is done.
+      type: object
+    upgrade:
+      type: object
+      properties:
+        no_hooks:
+          type: boolean
+        pre:
+          type: object
+          additionalProperties: false
+          properties:
+            delete:
+              $ref: '#/definitions/hook_action'
+            update:
+              $ref: '#/definitions/hook_action'
+            create:
+              $ref: '#/definitions/hook_action'
+        post:
+          type: object
+          additionalProperties: false
+          properties:
+            create:
+              $ref: '#/definitions/hook_action'
+        options:
+          type: object
+          properties:
+            force:
+              type: boolean
+            recreate_pods:
+              type: boolean
+          additionalProperties: false
+      required:
+        - no_hooks
+      additionalProperties: false
+  required:
+    - dependencies
+    - namespace
+    - chart_name
+    - release
+    - source
+  additionalProperties: false
+...

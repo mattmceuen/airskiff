@@ -1,0 +1,19 @@
+---
+schema: deckhand/DataSchema/v1
+metadata:
+  name: armada/Manifest/v1
+  schema: metadata/Control/v1
+data:
+  $schema: http://json-schema.org/schema#
+  properties:
+    release_prefix:
+      type: string
+    chart_groups:
+      type: array
+      items:
+        type: string
+  required:
+    - chart_groups
+    - release_prefix
+  additionalProperties: false
+...

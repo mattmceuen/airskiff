@@ -62,6 +62,14 @@ build behind your proxy servers:
     export USE_PROXY=true
     export PROXY=${http_proxy}
 
+Run the ``setup-proxy.sh`` script to add your proxy server to the Pegleg
+software versions document, enabling Armada to clone charts behind your proxy
+server.
+
+.. code-block:: bash
+
+    ./tools/deployment/common/setup-proxy.sh
+
 After the ``OpenStack-Helm`` and ``OpenStack-Helm-Infra`` repositories are
 cloned to your parent directory by the
 ``tools/deployment/developer/common/005-make-airship.sh`` script during the

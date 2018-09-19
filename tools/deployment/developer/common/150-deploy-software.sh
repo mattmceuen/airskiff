@@ -23,7 +23,6 @@ CURRENT_DIR="$(pwd)"
 
 # The image that pegleg.sh will use. This matches what is built by pegleg `make`
 : ${PL_IMAGE:=quay.io/airshipit/pegleg:latest}
-: ${IMAGE=${PL_IMAGE}}  # Pegleg uses the IMAGE variable
 
 # Validate deployment manifests
 : ${PEGLEG:="${PL_PATH}/tools/pegleg.sh"}
@@ -32,11 +31,11 @@ CURRENT_DIR="$(pwd)"
 cd ${CURRENT_DIR}
 
 # Lint deployment manifests
-${PEGLEG} lint -p deployment_files/
+IMAGE=${PL_IMAGE} ${PEGLEG} lint -p deployment_files/
 
 # Collect the deployment manifests that will be used
 mkdir -p ${PL_OUTPUT}
-${PEGLEG} site -p deployment_files/ collect ${PL_SITE} -s ${PL_OUTPUT}
+IMAGE=${PL_IMAGE} ${PEGLEG} site -p deployment_files/ collect ${PL_SITE} -s ${PL_OUTPUT}
 cp -rp ${CURRENT_DIR}/${PL_OUTPUT} ${SY_PATH}/${SY_OUTPUT}
 
 # Deploy the site

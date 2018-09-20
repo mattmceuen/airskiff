@@ -31,11 +31,11 @@ CURRENT_DIR="$(pwd)"
 cd ${CURRENT_DIR}
 
 # Lint deployment manifests
-IMAGE=${PL_IMAGE} ${PEGLEG} lint -p deployment_files/
+IMAGE=${PL_IMAGE} ${PEGLEG} site -r deployment_files/ lint ${PL_SITE}
 
 # Collect the deployment manifests that will be used
 mkdir -p ${PL_OUTPUT}
-IMAGE=${PL_IMAGE} ${PEGLEG} site -p deployment_files/ collect ${PL_SITE} -s ${PL_OUTPUT}
+IMAGE=${PL_IMAGE} ${PEGLEG} site -r deployment_files/ collect ${PL_SITE} -s ${PL_OUTPUT}
 cp -rp ${CURRENT_DIR}/${PL_OUTPUT} ${SY_PATH}/${SY_OUTPUT}
 
 # Deploy the site

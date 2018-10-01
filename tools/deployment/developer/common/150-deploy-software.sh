@@ -54,7 +54,7 @@ ${SHIPYARD} ${SY_AUTH} create configdocs the-design \
              --directory=/target/${PL_OUTPUT}
 
 ${SHIPYARD} ${SY_AUTH} commit configdocs --force
-${SHIPYARD} ${SY_AUTH} create action update_software
+${SHIPYARD} ${SY_AUTH} create action update_software --allow-intermediate-commits
 
 # To see the status of the action:
 #     shipyard describe action 01CKPKZ2FXSMYV0V99GH3R3W3P

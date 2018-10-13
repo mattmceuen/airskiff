@@ -58,7 +58,7 @@ helm upgrade --install shipyard ./charts/shipyard \
     --namespace=ucp \
     --values=/tmp/shipyard.yaml \
     ${AS_EXTRA_HELM_ARGS} \
-    ${AS_EXTRA_HELM_ARGS_MARIADB}
+    ${AS_EXTRA_HELM_ARGS_SHIPYARD}
 
 #NOTE: Wait for deploy
 ${CURRENT_DIR}/tools/deployment/common/wait-for-pods.sh ucp

@@ -31,7 +31,7 @@ make charts
 helm upgrade --install deckhand ./charts/deckhand \
     --namespace=ucp \
     ${AS_EXTRA_HELM_ARGS} \
-    ${AS_EXTRA_HELM_ARGS_MARIADB}
+    ${AS_EXTRA_HELM_ARGS_DECKHAND}
 
 #NOTE: Wait for deploy
 ${CURRENT_DIR}/tools/deployment/common/wait-for-pods.sh ucp

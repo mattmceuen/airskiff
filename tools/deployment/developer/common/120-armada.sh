@@ -39,7 +39,7 @@ helm upgrade --install armada ./charts/armada \
     --namespace=ucp \
     --values /tmp/armada.yaml \
     ${AS_EXTRA_HELM_ARGS} \
-    ${AS_EXTRA_HELM_ARGS_MARIADB}
+    ${AS_EXTRA_HELM_ARGS_ARMADA}
 
 #NOTE: Wait for deploy
 ${CURRENT_DIR}/tools/deployment/common/wait-for-pods.sh ucp

@@ -29,7 +29,7 @@ helm upgrade --install postgresql ./postgresql \
     --namespace=ucp \
     --set pod.replicas.server=1 \
     ${AS_EXTRA_HELM_ARGS} \
-    ${AS_EXTRA_HELM_ARGS_MARIADB}
+    ${AS_EXTRA_HELM_ARGS_POSTGRESQL}
 
 #NOTE: Wait for deploy
 ./tools/deployment/common/wait-for-pods.sh ucp

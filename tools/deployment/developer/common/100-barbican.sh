@@ -28,7 +28,7 @@ make barbican
 helm upgrade --install barbican ./barbican \
     --namespace=ucp \
     ${AS_EXTRA_HELM_ARGS} \
-    ${AS_EXTRA_HELM_ARGS_KEYSTONE}
+    ${AS_EXTRA_HELM_ARGS_BARBICAN}
 
 #NOTE: Wait for deploy
 ./tools/deployment/common/wait-for-pods.sh ucp

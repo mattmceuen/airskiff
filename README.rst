@@ -1,3 +1,5 @@
+This project has been integrated into the `Airship Treasuremap <https://github.com/openstack/airship-treasuremap>`_ project.  Please visit the `Airskiff Documentation <https://airship-treasuremap.readthedocs.io/en/latest/airskiff.html>`_!
+
 ========
 Airskiff
 ========
